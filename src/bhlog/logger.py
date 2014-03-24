@@ -47,7 +47,21 @@ logging.config.dictConfig({
 log_ch = logging.getLogger("bhg_call_hierarchy")
 
 
-def log_ch_debug(except_modules=[]):
+def log_ch_debug(msg="", except_modules=[]):
     #TODO ipdb here to see if we can add a file handler in case
     # only bhg-null handler is defined for this
-    log_ch.debug(current_call_stack(except_modules))
+    log_ch.debug("{0}; calls={1}".format(msg, current_call_stack(except_modules)))
+
+
+def set_logger_level(name, level):
+    if name in logging.Logger.manager.loggerDict:
+        lgr = logging.getLogger(name)
+        lgr.setLevel(level)
+
+
+def enable_logger(name):
+    set_logger_level(name, logging.DEBUG)
+
+
+def disable_logger(name):
+    set_logger_level(name, logging.ERROR)

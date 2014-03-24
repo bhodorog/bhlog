@@ -2,7 +2,7 @@ import inspect
 import logging
 
 
-def current_logging_call_stack(except_modules=[]):
+def current_call_stack(except_modules=[]):
     """ return the call hierarchy for the current stack """
     # we need the frame where logging was called not the frame of this call
     outer = inspect.getouterframes(logging.currentframe())
