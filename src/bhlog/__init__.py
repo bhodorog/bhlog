@@ -1,5 +1,5 @@
-import logging
 from django.conf import settings
+
 
 def monkey_patch_django_db():
     """ 1. add a logger to logging.Logger.manager.dictLog (see 3)
@@ -11,6 +11,7 @@ def monkey_patch_django_db():
          used)
          3. Would be nice to intercept the logRecords emitted by
          DebugCursorWrapper and emit them to the above custom
-         RotatingFileHandler (add the logger as parrent for django.db.backends?)
+         RotatingFileHandler (add the logger as parrent for
+         django.db.backends?)
     """
     settings.DEBUG = True
