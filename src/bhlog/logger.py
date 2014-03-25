@@ -35,6 +35,12 @@ logging.config.dictConfig({
             'filename': '/tmp/call_hierarchy.log',
             'formatter': 'bhg_full',
         },
+        'per_request': {
+            'level': 'DEBUG',
+            'class': 'bhlog.handlers.EachRequestRotatingFileHandler',
+            'filename': '/tmp/dbops_per_request/start.log',
+            'formatter': 'bhg_full',
+        }
     },
     'loggers': {
         'bhg_call_hierarchy': {
