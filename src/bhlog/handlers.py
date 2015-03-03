@@ -1,8 +1,20 @@
 import logging.handlers
 import os.path
 
+import sqlalchemy
+import sqlalchemy.orm
+import bhglog.models
 
 PATH = '/tmp/per_req/'
+
+
+class SqlAlchemyHandler(logging.Handler):
+    def __init__(self,):
+        # self.engine = sqlalchemy.create_engine("mysql://root@localhost/alchemy")
+        # self.session_cls = sqlalchemy.orm.sessionmaker(self.engine)
+
+    def emit(self, record):
+        pass
 
 
 class EachRequestRotatingFileHandler(logging.handlers.BaseRotatingHandler):
